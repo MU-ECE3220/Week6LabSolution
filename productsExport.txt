@@ -1,4 +1,4 @@
-35
+36
 0
 Basic Microwave
 0
@@ -127,7 +127,7 @@ Automatic Programming Computer
 25
 8K 100 inch TV
 4
-4
+0
 2999.97
 26
 Ambrosia Apple
@@ -174,8 +174,8 @@ Cyberpunk 2
 6
 10
 79.98
-35
-Pokemon Brilliant Diamond and Shining Pearl, Dual Pack
-6
-15
-100.98
+40
+Fancy Electronic
+4
+0
+93.99

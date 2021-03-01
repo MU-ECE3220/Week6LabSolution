@@ -39,29 +39,59 @@ ProductVector::ProductVector(std::string importFilePath)
     file.close();
 }
 
+void ProductVector::exportProductsToText(std::string filepath)
+{
+    std::ofstream file(filepath);
+
+    file << get_count() << std::endl;
+
+    std::vector<Product>::iterator iter;
+    for (iter = productsVector_.begin(); iter != productsVector_.end(); iter++)
+        file << (*iter).to_export_string();
+
+    file.close();
+}
+
 size_t ProductVector::get_count()
 {
     return productsVector_.size();
 }
 
-Product ProductVector::get_product(size_t index)
+Product* ProductVector::get_productByIndex(size_t index)
 {
     try
     {
         if (index > productsVector_.size() - 1)
-            throw std::out_of_range("Exception: Index out of range.");
+            throw std::string("Exception: Vector index out of range.");
         
-        return productsVector_[index];
+        return &(productsVector_[index]);
     }
-    catch(const std::exception& e)
+    catch(const std::string& e)
     {
-        std::cerr << e.what() << std::endl;
+        std::cerr << e << std::endl;
 
-        Product invalidProduct;
-        invalidProduct.set_name("INVALID");
-        return invalidProduct;
+        return NULL;
     }
+}
 
+Product* ProductVector::get_productByID(int id)
+{
+    try
+    {
+        std::vector<Product>::iterator iter;
+        for (iter = productsVector_.begin(); iter != productsVector_.end(); iter++)
+        {
+            if ((*iter).get_id() == id)
+                return &(*iter);
+        }
+        throw std::string("Exception: No product with ID " + std::to_string(id) + ".");
+    }
+    catch(const std::string& e)
+    {
+        std::cerr << e << std::endl;
+
+        return NULL;
+    }
 }
 
 void ProductVector::add_product(const Product &product)
@@ -71,26 +101,26 @@ void ProductVector::add_product(const Product &product)
     {
         for (iter = productsVector_.begin(); iter != productsVector_.end(); iter++)
             if ((*iter).get_id() == product.get_id())
-                throw std::invalid_argument("Exception: Duplicate ID.");
+                throw std::string("Exception: Duplicate ID.");
 
         productsVector_.push_back(product);
         std::cout << "Product " << product.get_name() << " with ID " 
                     << product.get_id() << " successfully added." << std::endl;
     }
-    catch(const std::exception &e)
+    catch(const std::string &e)
     {
-        std::cerr << e.what() << std::endl;
+        std::cerr << e << std::endl;
         std::cerr << "Duplicate product " << product.get_name() 
                     << " with ID of " << product.get_id() << " not added." << std::endl;
     }
 }
 
-Product ProductVector::find_mostExpensiveProduct()
+Product* ProductVector::find_mostExpensiveProduct()
 {
     try
     {
         if (productsVector_.size() == 0)
-            throw std::length_error("Exception: Products vector has no elements.");
+            throw std::string("Exception: Products vector has no elements.");
 
         std::vector<Product>::iterator iter;
         Product* productMax;
@@ -98,26 +128,27 @@ Product ProductVector::find_mostExpensiveProduct()
     
         for (iter = productsVector_.begin(); iter != productsVector_.end(); iter++)
             if ((*iter).get_price() > globalMax)
+            {
+                globalMax = (*iter).get_price();
                 productMax = &(*iter);
+            }
 
-        return *productMax;
+        return productMax;
     }
-    catch(const std::exception& e)
+    catch(const std::string& e)
     {
-        std::cerr << e.what() << std::endl;
+        std::cerr << e << std::endl;
 
-        Product invalidProduct;
-        invalidProduct.set_name("INVALID");
-        return invalidProduct;
+        return NULL;
     }
 }
 
-Product ProductVector::find_leastExpensiveProduct()
+Product* ProductVector::find_leastExpensiveProduct()
 {
     try
     {
         if (productsVector_.size() == 0)
-            throw std::length_error("Exception: Products vector has no elements.");
+            throw std::string("Exception: Products vector has no elements.");
 
         std::vector<Product>::iterator iter;
         Product* productMin;
@@ -125,17 +156,18 @@ Product ProductVector::find_leastExpensiveProduct()
     
         for (iter = productsVector_.begin(); iter != productsVector_.end(); iter++)
             if ((*iter).get_price() < globalMin)
+            {
+                globalMin = (*iter).get_price();
                 productMin = &(*iter);
+            }
 
-        return *productMin;
+        return productMin;
     }
-    catch(const std::exception& e)
+    catch(const std::string& e)
     {
-        std::cerr << e.what() << std::endl;
+        std::cerr << e << std::endl;
 
-        Product invalidProduct;
-        invalidProduct.set_name("INVALID");
-        return invalidProduct;
+        return NULL;
     }
 }
 
@@ -154,4 +186,12 @@ std::vector<Product> ProductVector::get_outOfStockVector()
     }
     
     return outOfStockVector;
+}
+
+void ProductVector::print()
+{
+    std::vector<Product>::iterator iter;
+
+    for (iter = productsVector_.begin(); iter != productsVector_.end(); iter++)
+        std::cout << (*iter).to_string();
 }
