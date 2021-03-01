@@ -1,0 +1,181 @@
+35
+0
+Basic Microwave
+1
+4
+49.99
+1
+Fancy Microwave
+1
+5
+99.98
+2
+Elite Microwave
+1
+3
+197.95
+3
+ChillMax Freezer
+1
+2
+263.45
+4
+Toasty McToasterFace
+1
+5
+19.95
+5
+Hot Water Dispenser
+1
+8
+15.34
+6
+Racing Bucket Seat
+2
+3
+175.76
+7
+5W-30 Advanced Synthetic Oil
+2
+10
+24.47
+8
+5W-20 Advanced Synthetic Oil
+2
+12
+24.48
+9
+5W-30 Traditional Oil
+2
+14
+19.96
+10
+5W-20 Traditional Oil
+2
+15
+19.97
+11
+The DaVinci Code
+3
+19
+17.36
+12
+Harry Potter and the Deathly Hallows
+3
+15
+13.44
+13
+Harry Potter and the Philosopher's Stone
+3
+15
+14.45
+14
+Twilight, Literally All of Them
+3
+32
+24.53
+15
+Donald Knuth's The Art of Computer Programming
+3
+4
+82.32
+16
+A Forgotten Sock
+4
+4
+0.32
+17
+Generic Shirt
+4
+10
+10.99
+18
+Crocs
+4
+13
+32.65
+19
+Boots Made for Walking
+4
+15
+44.44
+20
+Boots Not Made for Walking
+4
+10
+34.44
+21
+Literally the First iPod
+5
+1
+23.89
+22
+Generic E-Reader
+5
+5
+45.55
+23
+Amazon Kindle Paperwhite
+5
+4
+94.99
+24
+Automatic Programming Computer
+5
+3
+1299.99
+25
+8K 100 inch TV
+5
+4
+2999.97
+26
+Ambrosia Apple
+6
+344
+0.55
+27
+Act II Butter Lover's Popcorn, Pantry Pack
+6
+25
+6.98
+28
+Parmigiano Reggiano
+6
+20
+16.77
+29
+Muenster Cheese
+6
+14
+3.44
+30
+Manchego Cheese
+6
+13
+3.24
+31
+Half-Life 3
+7
+10
+59.98
+32
+Dota 3
+7
+9
+19.98
+33
+The Elder Scrolls 6
+7
+11
+59.99
+34
+Cyberpunk 2
+7
+10
+79.98
+35
+Pokemon Brilliant Diamond and Shining Pearl, Dual Pack
+7
+15
+100.98
